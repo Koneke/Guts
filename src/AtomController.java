@@ -75,4 +75,28 @@ public class AtomController {
 		}
 		return null;
 	}
+
+	public static List<AtomController> getType(String type) {
+		List<AtomController> result = new ArrayList<AtomController>();
+		
+		for(int i = 0; i < controllers.length; i++) {
+			if(controllers[i].getController().getType().toString().equals(type)) {
+				result.add(controllers[i]);
+			}
+		}
+		
+		return result;
+	}
+
+	public static void updateAll() {
+		for(int i = 0; i < controllers.length; i++) {
+			controllers[i].update();
+		}
+	}
+
+	public static void postUpdateAll() {
+		for(int i = 0; i < controllers.length; i++) {
+			controllers[i].postupdate();
+		}
+	}
 }
